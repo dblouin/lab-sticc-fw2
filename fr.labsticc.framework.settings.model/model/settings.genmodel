@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.labsticc.framework.settings.model/src" modelPluginID="fr.labsticc.framework.settings.model"
+    modelName="Settings" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="platform:/plugin/fr.labsticc.framework.constraints.model/model/constraints.genmodel#//constraints">
+  <foreignModel>settings.ecore</foreignModel>
+  <genPackages prefix="Settings" basePackage="fr.labsticc.framework.settings.model"
+      disposableProviderFactory="true" ecorePackage="settings.ecore#/">
+    <genClasses image="false" ecoreClass="settings.ecore#//IdentifiedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//IdentifiedElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//IdentifiedElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//IdentifiedElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//SettingsSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//SettingsSpecification/ownedLanguages"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//ModelingLanguage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguage/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguage/ownedLanguageAssociations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguage/ownedCategoryAssociations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguage/ownedModelInterface"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguage/specification"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//ModelingLanguage/fileExtensions"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//ModelingLanguageAssociations">
+      <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguageAssociations/targetLanguage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//ModelingLanguageAssociations/ownedPropToTypesAssociations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="settings.ecore#//PropertyAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference settings.ecore#//PropertyAssociation/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference settings.ecore#//PropertyAssociation/subclass"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//PropertyToTypesAssociation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference settings.ecore#//PropertyToTypesAssociation/associatedTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//PropertyToTypesAssociation/ownedCondition"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference settings.ecore#//PropertyToTypesAssociation/parent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//PropertyToTypesAssociation/containers"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//PropertyToCategoriesAssociation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference settings.ecore#//PropertyToCategoriesAssociation/ownedCategories"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//Category">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference settings.ecore#//Category/subCategories"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference settings.ecore#//Category/parentCategory"/>
+    </genClasses>
+    <genClasses ecoreClass="settings.ecore#//ServiceDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//ServiceDescriptor/providerId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute settings.ecore#//ServiceDescriptor/serviceClass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="settings.ecore#//ModelInterface">
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getPropertyValue">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getPropertyValue/p_component"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getPropertyValue/p_property"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getPropertyValue.1">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getPropertyValue.1/p_component"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getPropertyValue.1/p_property"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getPropertyValue.1/p_unit"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getDefaultPropertyValue">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getDefaultPropertyValue/p_property"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/setPropertyValue">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/setPropertyValue/p_component"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/setPropertyValue/p_property"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/setPropertyValue/p_value"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/setPropertyValue/p_unit"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/isComponent">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/isComponent/p_object"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/isPropertyValue">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/isPropertyValue/p_object"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getPropertyFromValue">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getPropertyFromValue/p_propValue"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/componentTypes">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/componentTypes/p_component"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/selectedModelObject">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/selectedModelObject/p_editor"/>
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/selectedModelObject/p_selection"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/isModelResource">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/isModelResource/p_resource"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getLanguageName"/>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getCustomResourcet"/>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getElementName">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getElementName/p_element"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/getElementText">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/getElementText/p_element"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ModelInterface/isModelElement">
+        <genParameters ecoreParameter="settings.ecore#//ModelInterface/isModelElement/p_object"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="settings.ecore#//ScopeProvider">
+      <genOperations ecoreOperation="settings.ecore#//ScopeProvider/getScope">
+        <genParameters ecoreParameter="settings.ecore#//ScopeProvider/getScope/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="settings.ecore#//ScopeProvider/getElementFromScope">
+        <genParameters ecoreParameter="settings.ecore#//ScopeProvider/getElementFromScope/element"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
