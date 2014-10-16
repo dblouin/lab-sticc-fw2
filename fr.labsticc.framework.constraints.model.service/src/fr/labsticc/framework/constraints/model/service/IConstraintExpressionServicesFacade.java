@@ -39,22 +39,4 @@ public interface IConstraintExpressionServicesFacade extends IConstraintServices
 	Diagnostic evaluate( 	Constraint p_constraint,
 							EvalContext p_context ) 
 	throws ConstraintException, SystemException;
-//
-//	Diagnostic evaluate( 	CardinalityConstraint p_constraint,
-//							EvalContext p_context )
-//	throws ConstraintException, SystemException;
-//	
-//	Diagnostic evaluate( 	TypeConstraint p_constraint,
-//							EvalContext p_context );
-//	
-//	Diagnostic evaluate( 	TypeConstraint p_constraint,
-//							EClass p_contextClass );
-//	
-//	Diagnostic evaluate( 	FeatureValueConstraint p_constraint,
-//							EvalContext p_context )
-//	throws ConstraintException, SystemException;
-//	
-//	Diagnostic evaluate( 	FormalLanguageConstraint p_constraint,
-//							EvalContext p_context )
-//	throws ConstraintException, SystemException;
 }
