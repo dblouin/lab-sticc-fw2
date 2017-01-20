@@ -124,9 +124,16 @@ public class SettingsPlugin extends AbstractUIPlugin implements IResourceChangeL
 			//specificationResource.getContents().add( initDefaultSpecification() );
 			final SettingsSpecification specif = initDefaultSpecification();
 			final ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-			specif.eResource().save( outStream, null );
-			specificationResource.load( new ByteArrayInputStream( outStream.toByteArray() ), null );
-			specification = (SettingsSpecification) specificationResource.getContents().get( 0 );
+			
+			if ( specif.eResource() == null ) {
+				specification = specif;
+			}
+			else {
+				specif.eResource().save( outStream, null );
+				specificationResource.load( new ByteArrayInputStream( outStream.toByteArray() ), null );
+				specification = (SettingsSpecification) specificationResource.getContents().get( 0 );
+			}
+			
 			saveSpecification( uri );
 		}
 
