@@ -13,6 +13,7 @@ Export-Package: fr.labsticc.framework.settings.model.settings,
 Bundle-ActivationPolicy: lazy
 Import-Package: fr.labsticc.framework.constraints.model.constraints,
  fr.labsticc.framework.core.exception,
+ fr.labsticc.framework.emf.core.util,
  org.eclipse.emf.common,
  org.eclipse.emf.common.notify,
  org.eclipse.emf.common.notify.impl,
@@ -21,4 +22,7 @@ Import-Package: fr.labsticc.framework.constraints.model.constraints,
  org.eclipse.emf.ecore.impl,
  org.eclipse.emf.ecore.plugin,
  org.eclipse.emf.ecore.resource,
- org.eclipse.emf.ecore.util
+ org.eclipse.emf.ecore.util,
+ org.eclipse.emf.edit.provider,
+ org.eclipse.emf.edit.ui.provider,
+ org.eclipse.jface.viewers
