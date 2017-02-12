@@ -186,6 +186,11 @@ public class SettingsPlugin extends AbstractUIPlugin implements IResourceChangeL
 		if ( p_destUri.isPlatformPlugin() ) {
 			// Use absolute path because platform plugin protocol does not allow save operation.
 			final String absPath = resourceHandler.locateResource( p_destUri.toString() );
+			
+			if ( absPath == null ) {
+				throw new ResourceAccessException( "Cannot locate resource " + p_destUri + "!" );
+			}
+
 			final Resource fileRes = resSet.getResource( URI.createFileURI( absPath ), true );
 			fileRes.getContents().clear();
 			fileRes.getContents().add( specification );

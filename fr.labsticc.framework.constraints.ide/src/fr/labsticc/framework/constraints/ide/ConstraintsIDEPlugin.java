@@ -248,6 +248,11 @@ public class ConstraintsIDEPlugin extends AbstractUIPlugin {
 	throws ResourceAccessException, IOException {
 		if ( !p_modelUri.equals( p_destUri ) ) {
 			final String defaultModelFile = resourceHandler.locateResource( p_modelUri.toString() );
+			
+			if ( defaultModelFile == null ) {
+				throw new ResourceAccessException( "Cannot locate resource " + p_modelUri + "!" );
+			}
+			
 			final File inDirectory = new File( defaultModelFile ).getParentFile();
 			final String outModelFile = resourceHandler.locateResource( p_destUri.toString() );
 			final File outDirectory = new File( outModelFile ).getParentFile();
