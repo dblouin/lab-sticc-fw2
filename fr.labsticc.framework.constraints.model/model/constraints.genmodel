@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.labsticc.framework.constraints.model/src"
-    modelPluginID="fr.labsticc.framework.constraints.model" modelName="Constraints"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.labsticc.framework.constraints.model/src" modelPluginID="fr.labsticc.framework.constraints.model"
+    modelName="Constraints" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>constraints.ecore</foreignModel>
   <genPackages prefix="Constraints" basePackage="fr.labsticc.framework.constraints.model"
       disposableProviderFactory="true" ecorePackage="constraints.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="constraints.ecore#//ScopeType">
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ScopeType/Resource"/>
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ScopeType/ResourceSet"/>
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ScopeType/AllReferences"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="constraints.ecore#//ValidationStatus">
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ValidationStatus/Valid"/>
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ValidationStatus/Warning"/>
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ValidationStatus/Error"/>
+      <genEnumLiterals ecoreEnumLiteral="constraints.ecore#//ValidationStatus/NotApplicable"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="constraints.ecore#//IdentifiedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//IdentifiedElement/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//IdentifiedElement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//IdentifiedElement/description"/>
     </genClasses>
-    <genClasses ecoreClass="constraints.ecore#//ConstraintLanguagesSpecification">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//ConstraintLanguagesSpecification/languages"/>
-      <genOperations ecoreOperation="constraints.ecore#//ConstraintLanguagesSpecification/languageById">
-        <genParameters ecoreParameter="constraints.ecore#//ConstraintLanguagesSpecification/languageById/id"/>
+    <genClasses ecoreClass="constraints.ecore#//ConstraintLanguagesSpec">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//ConstraintLanguagesSpec/ownedLanguages"/>
+      <genOperations ecoreOperation="constraints.ecore#//ConstraintLanguagesSpec/languageById">
+        <genParameters ecoreParameter="constraints.ecore#//ConstraintLanguagesSpec/languageById/id"/>
+      </genOperations>
+      <genOperations ecoreOperation="constraints.ecore#//ConstraintLanguagesSpec/languageByName">
+        <genParameters ecoreParameter="constraints.ecore#//ConstraintLanguagesSpec/languageByName/name"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="constraints.ecore#//ConstraintLanguage">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference constraints.ecore#//ConstraintLanguage/specification"/>
     </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//NaturalConstraintLanguage"/>
     <genClasses ecoreClass="constraints.ecore#//FormalConstraintLanguage">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/libraries"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/interpreter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/persister"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/ownedLibraries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/ownedInterpreter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/ownedPersister"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalConstraintLanguage/ownedViewer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//FormalConstraintLanguage/libraryLocation"/>
       <genOperations ecoreOperation="constraints.ecore#//FormalConstraintLanguage/libraryByName">
         <genParameters ecoreParameter="constraints.ecore#//FormalConstraintLanguage/libraryByName/name"/>
       </genOperations>
@@ -32,9 +48,12 @@
         <genParameters ecoreParameter="constraints.ecore#//FormalConstraintLanguage/libraryById/id"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="constraints.ecore#//NaturalConstraintLanguage"/>
+    <genClasses ecoreClass="constraints.ecore#//ServiceDescriptor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//ServiceDescriptor/serviceClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//ServiceDescriptor/providerId"/>
+    </genClasses>
     <genClasses ecoreClass="constraints.ecore#//FormalLanguageLibrary">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalLanguageLibrary/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalLanguageLibrary/ownedExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//FormalLanguageLibrary/default"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalLanguageLibrary/language"/>
     </genClasses>
@@ -42,13 +61,53 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Expression/language"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Expression/text"/>
     </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//NaturalLanguageExpression"/>
     <genClasses ecoreClass="constraints.ecore#//FormalLanguageExpression">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalLanguageExpression/usedLibraries"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//FormalLanguageExpression/usedLibraryNames"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//FormalLanguageExpression/usedLibraryIds"/>
     </genClasses>
-    <genClasses ecoreClass="constraints.ecore#//NaturalLanguageExpression"/>
-    <genClasses ecoreClass="constraints.ecore#//ServiceDescriptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//ServiceDescriptor/serviceClass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//ServiceDescriptor/providerId"/>
+    <genClasses image="false" ecoreClass="constraints.ecore#//Constraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Constraint/target"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Target">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Target/classifier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Target/features"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//CardinalityConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//CardinalityConstraint/ownedCardinality"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//CardinalityConstraint/ownedModelElementsSubset"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Cardinality">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Cardinality/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Cardinality/upperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//FormalLanguageConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FormalLanguageConstraint/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//TypeConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//TypeConstraint/allowedTypes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="constraints.ecore#//AbstractModelElementsSet"/>
+    <genClasses ecoreClass="constraints.ecore#//ConstrainedModelElementsSubset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//ConstrainedModelElementsSubset/ownedConstraints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//ConstrainedModelElementsSubset/scope"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//EnumeratedModelElementsSet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//EnumeratedModelElementsSet/modelElements"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//FeatureValueConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//FeatureValueConstraint/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference constraints.ecore#//FeatureValueConstraint/value"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//EvalContext">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//EvalContext/modelElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//EvalContext/metaModelElement"/>
+    </genClasses>
+    <genClasses ecoreClass="constraints.ecore#//Diagnostic">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Diagnostic/validationStatus"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference constraints.ecore#//Diagnostic/relatedModelElements"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute constraints.ecore#//Diagnostic/valid"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
