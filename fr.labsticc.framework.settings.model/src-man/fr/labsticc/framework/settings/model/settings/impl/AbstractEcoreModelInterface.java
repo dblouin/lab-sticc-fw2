@@ -13,13 +13,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
 
 import fr.labsticc.framework.emf.core.util.EMFUtil;
 
 public abstract class AbstractEcoreModelInterface extends ModelInterfaceImpl {
 	
-	private final AdapterFactoryLabelProvider labelProvider;
+	private final ILabelProvider labelProvider;
 	
 	private final Map<EPackage, String> languagePackages;
 	
